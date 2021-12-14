@@ -1,0 +1,75 @@
+.ui.celled.table {
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.ui.celled.table th {
+  background-color: #666666;
+  color: #F5F5D7;
+}
+
+.ui.celled.table td {
+  background-color: #FFF2CC;
+}
+
+.ui.celled.table tr th,
+.ui.celled.table tr td {
+  border-top: solid black 1px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+}
+
+.ui.celled.table tr.border-top th,
+.ui.celled.table tr.border-top td {
+  border-top: solid black 4px;
+}
+
+.ui.celled.table tr.border-left th,
+.ui.celled.table tr.border-left td {
+  border-left: solid black 2px;
+}
+
+.ui.celled.table tr.border-left th:first-child,
+.ui.celled.table tr.border-left td:first-child {
+  border-left: solid black 4px;
+}
+
+.ui.celled.table .border-right th,
+.ui.celled.table .border-right td {
+  border-right: solid black 2px;
+}
+
+.ui.celled.table .border-right th:last-child,
+.ui.celled.table .border-right td:last-child {
+  border-right: solid black 4px;
+}
+
+.ui.celled.table .border-bottom th,
+.ui.celled.table .border-bottom td {
+  border-bottom: solid black 4px;
+}
+
+#user-total-cards {
+  background-color: #E06666;
+}
+
+#user-tokens {
+  background-color: #6D9EEB;
+}
+
+#user-gc {
+  background-color: #C27BA0;
+}
+
+#user-exp {
+  background-color: #F6B26B;
+}
+
+#user-rt {
+  background-color: #93C47D;
+}
+
+#user-lt {
+  background-color: #FFD966;
+}
