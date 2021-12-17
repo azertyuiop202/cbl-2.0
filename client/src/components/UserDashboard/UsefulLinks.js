@@ -27,7 +27,7 @@ const UsefulLinks = () => {
             if (idx + 1 === links.length) classes += ' border-bottom';
 
             return (
-              <Table.Row key={idx} className={classes}>
+              <Table.Row key={link.index} className={classes}>
                 <Table.Cell>
                   <a href={link.url} target="_blank">{link.title}</a>
                 </Table.Cell>
