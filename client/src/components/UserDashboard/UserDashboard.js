@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import BonusCelebs from './BonusCelebs.js';
+import CardOfTheWeek from './CardOfTheWeek.js';
 import ExchangeCelebs from './ExchangeCelebs.js';
 import UsefulLinks from './UsefulLinks.js';
 
@@ -22,7 +23,8 @@ const UserDashboard = () => {
           <BonusCelebs/>
         </Grid.Column>
         <Grid.Column style={{ width: '15%' }}>
-          <ExchangeCelebs/>
+          <Grid.Row><CardOfTheWeek/></Grid.Row><br/>
+          <Grid.Row><ExchangeCelebs/></Grid.Row>
         </Grid.Column>
       </Grid>
     </>
