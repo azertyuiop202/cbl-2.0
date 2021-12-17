@@ -1,11 +1,13 @@
 import express from 'express';
 
+import info from './routes/info.js';
 import user from './routes/user.js';
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 
+app.use('/api/info', info);
 app.use('/api/user', user);
 
 app.listen(PORT, () => {
