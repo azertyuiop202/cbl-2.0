@@ -1,0 +1,1 @@
+export const getCelebNumber = (celeb) => celeb.number.toString().padStart(3, '0');

@@ -8,6 +8,10 @@
   color: #F5F5D7;
 }
 
+.ui.celled.table th.sub-header {
+  background-color: #999999;
+}
+
 .ui.celled.table td {
   background-color: #FFF2CC;
 }

@@ -13,13 +13,13 @@ const UserGeneralInfo = () => {
   }, []);
 
   const fetchUserData = () => {
-    fetch('/api/user/1').then((res) => res.json()).then((user) => {
+    fetch('/api/users/1').then((res) => res.json()).then((user) => {
       setUser({...user, lastUpdate: new Date()});
     });
 
-    fetch('/api/user/1/totalCards').then((res) => res.json()).then(setTotalCards);
+    fetch('/api/users/1/totalCards').then((res) => res.json()).then(setTotalCards);
 
-    fetch('/api/user/1/prizes').then((res) => res.json()).then(setPrizes);
+    fetch('/api/users/1/prizes').then((res) => res.json()).then(setPrizes);
   }
 
   const prizesText = prizes.map((prize) => {

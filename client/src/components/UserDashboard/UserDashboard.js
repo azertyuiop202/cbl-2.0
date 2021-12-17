@@ -1,5 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
+import BonusCelebs from './BonusCelebs.js';
+import ExchangeCelebs from './ExchangeCelebs.js';
 import UsefulLinks from './UsefulLinks.js';
 
 import UserGeneralInfo from './UserGeneralInfo.js';
@@ -16,7 +18,11 @@ const UserDashboard = () => {
         <Grid.Column style={{ width: '50%' }}>
           <UserGeneralInfo />
         </Grid.Column>
-        <Grid.Column style={{ width: '35%' }}>
+        <Grid.Column style={{ width: '15%' }}>
+          <BonusCelebs/>
+        </Grid.Column>
+        <Grid.Column style={{ width: '15%' }}>
+          <ExchangeCelebs/>
         </Grid.Column>
       </Grid>
     </>
