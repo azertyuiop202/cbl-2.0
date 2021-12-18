@@ -3,13 +3,14 @@ import './styles/general.css';
 import './styles/table.css';
 import { Container } from 'semantic-ui-react';
 
-import UserDashboard from './components/UserDashboard/UserDashboard';
+import Main from './components/Main';
+import Navbar from './components/Navbar';
 
 export default () => (
-  <div style={{ overflow: 'auto', overflowY: 'hidden', paddingBottom: '25px' }}>
+  <div style={{ overflow: 'auto', overflowY: 'hidden', paddingBottom: '20px' }}>
     <Container style={{ width: '90%', minWidth: '1500px' }}>
-      <h1></h1>
-      <UserDashboard />
+      <Navbar />
+      <Main></Main>
     </Container>
   </div>
 );
