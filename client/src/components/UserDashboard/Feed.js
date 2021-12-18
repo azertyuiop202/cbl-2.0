@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'semantic-ui-react';
+import { Image, Table } from 'semantic-ui-react';
+
+import BreakingNewsImage from '../../assets/images/Breaking_News.png';
 
 const Feed = () => {
   const [feed, setFeed] = useState([]);
@@ -13,7 +15,11 @@ const Feed = () => {
   }
 
   return (
-    <>
+    <div style={{ textAlign: 'center' }}>
+      <Image
+        src={BreakingNewsImage}
+        className='center-image'
+        style={{ width: '350px', marginBottom: '-50px', border: '5px solid black' }} />
       <Table celled fixed>
         <Table.Header>
           <Table.Row className='border-top border-left border-right'>
@@ -32,10 +38,9 @@ const Feed = () => {
               </Table.Row>
             );
           }) }
-          
         </Table.Body>
       </Table>
-    </>
+    </div>
   );
 }
 
