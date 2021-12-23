@@ -12,7 +12,7 @@ const UsefulLinks = () => {
     fetch('/api/info/usefulLinks').then((res) => res.json()).then(setLinks);
   }
 
-  return (
+  return !links.length ? null : (
     <>
       <Table celled fixed>
         <Table.Header>

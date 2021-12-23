@@ -1,3 +1,7 @@
 img.ui.image.center-image {
   display: initial;
 }
+
+.ui.checkbox {
+  margin-bottom: -4px;
+}

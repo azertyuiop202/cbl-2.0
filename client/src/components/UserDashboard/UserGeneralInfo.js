@@ -26,7 +26,7 @@ const UserGeneralInfo = () => {
     return prize.prize + (prize.exp_date ? ` (Expires ${formatDate(prize.exp_date)})` : '');
   }).join("\n");
 
-  return (
+  return !(Object.keys(user) && totalCards && prizes.length) ? null : (
     <>
       <Table celled fixed>
         <Table.Header>

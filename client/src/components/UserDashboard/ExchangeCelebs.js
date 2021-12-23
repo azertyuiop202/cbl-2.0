@@ -13,7 +13,7 @@ const ExchangeCelebs = () => {
     fetch('/api/celebs/exchange').then((res) => res.json()).then(setCelebs);
   }
 
-  return (
+  return !celebs.length ? null : (
     <>
       <Table celled fixed>
         <Table.Header>

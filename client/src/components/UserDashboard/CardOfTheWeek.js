@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Image, Table } from 'semantic-ui-react';
 
 const CardOfTheWeek = () => {
-  const [card, setCard] = useState([]);
+  const [card, setCard] = useState({});
 
   useEffect(() => {
     fetchCard();
@@ -12,7 +12,7 @@ const CardOfTheWeek = () => {
     fetch('/api/cards/cardOfTheWeek').then((res) => res.json()).then(setCard);
   }
 
-  return (
+  return !Object.keys(card).length ? null : (
     <>
       <Table celled fixed>
         <Table.Header>

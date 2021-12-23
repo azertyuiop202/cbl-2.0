@@ -14,7 +14,7 @@ const Feed = () => {
     fetch('/api/info/feed').then((res) => res.json()).then(setFeed);
   }
 
-  return (
+  return !feed.length ? null : (
     <div style={{ textAlign: 'center' }}>
       <Image
         src={BreakingNewsImage}

@@ -14,12 +14,11 @@ const UserDashboard = () => {
       <h1>User Dashboard</h1>
       <Grid centered>
         <Grid.Column style={{ width: '15%' }}>
-          <Grid.Row style={{ height: '265px' }}></Grid.Row>
+          <Grid.Row style={{ height: '215px' }}></Grid.Row>
           <Grid.Row><UsefulLinks /></Grid.Row>
         </Grid.Column>
         <Grid.Column style={{ width: '50%' }}>
           <Grid.Row style={{ height: '215px' }}><UserGeneralInfo /></Grid.Row>
-          <Grid.Row style={{ height: '50px' }}></Grid.Row>
           <Grid.Row><Feed /></Grid.Row>
         </Grid.Column>
         <Grid.Column style={{ width: '15%' }}>

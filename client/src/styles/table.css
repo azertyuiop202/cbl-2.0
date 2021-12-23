@@ -3,6 +3,11 @@
   white-space: pre-wrap;
 }
 
+.ui.celled.table th, .ui.celled.table td {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+
 .ui.celled.table th {
   background-color: #666666;
   color: #F5F5D7;
