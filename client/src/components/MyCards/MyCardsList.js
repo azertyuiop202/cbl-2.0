@@ -3,7 +3,10 @@ import { Table } from 'semantic-ui-react';
 import { getCelebNumber } from '../../utils/celebUtils';
 
 const MyCardsList = (props) => {
-  return !props.cards.length ? null : (
+
+  if (props.cards === null) return null;
+
+  return (
     <Table celled fixed style={{ fontSize: '12px' }}>
       <Table.Header>
         <Table.Row className='border-top border-left border-right border-bottom'>

@@ -3,6 +3,8 @@ import { Image, Table } from 'semantic-ui-react';
 
 import BreakingNewsImage from '../../assets/images/Breaking_News.png';
 
+import fetch from '../../utils/fetch';
+
 const Feed = () => {
   const [feed, setFeed] = useState([]);
 
@@ -11,7 +13,7 @@ const Feed = () => {
   }, []);
 
   const fetchFeed = () => {
-    fetch('/api/info/feed').then((res) => res.json()).then(setFeed);
+    fetch('/api/info/feed').then(setFeed);
   }
 
   return !feed.length ? null : (

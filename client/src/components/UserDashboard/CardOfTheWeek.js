@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Image, Table } from 'semantic-ui-react';
 
+import fetch from '../../utils/fetch';
+
 const CardOfTheWeek = () => {
   const [card, setCard] = useState({});
 
@@ -9,7 +11,7 @@ const CardOfTheWeek = () => {
   }, []);
 
   const fetchCard = () => {
-    fetch('/api/cards/cardOfTheWeek').then((res) => res.json()).then(setCard);
+    fetch('/api/cards/cardOfTheWeek').then(setCard);
   }
 
   return !Object.keys(card).length ? null : (

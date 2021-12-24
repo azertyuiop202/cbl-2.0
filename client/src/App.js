@@ -10,7 +10,7 @@ export default () => (
   <div style={{ overflow: 'auto', overflowY: 'hidden', paddingBottom: '20px' }}>
     <Container style={{ width: '90%', minWidth: '1500px' }}>
       <Navbar />
-      <Main></Main>
+      <Main />
     </Container>
   </div>
 );

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'semantic-ui-react';
 import { getCelebNumber } from '../../utils/celebUtils';
 
+import fetch from '../../utils/fetch';
+
 const ExchangeCelebs = () => {
   const [celebs, setCelebs] = useState([]);
 
@@ -10,7 +12,7 @@ const ExchangeCelebs = () => {
   }, []);
 
   const fetchCelebs = () => {
-    fetch('/api/celebs/exchange').then((res) => res.json()).then(setCelebs);
+    fetch('/api/celebs/exchange').then(setCelebs);
   }
 
   return !celebs.length ? null : (

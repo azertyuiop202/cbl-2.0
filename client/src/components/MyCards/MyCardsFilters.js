@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Checkbox, Radio, Table } from 'semantic-ui-react';
 
+import fetch from '../../utils/fetch';
+
 const MyCardsFilters = (props) => {
   const [types, setTypes] = useState([]);
 
@@ -9,7 +11,7 @@ const MyCardsFilters = (props) => {
   }, []);
 
   const fetchTypes = () => {
-    fetch('/api/cards/types').then((res) => res.json()).then(setTypes);
+    fetch('/api/cards/types').then(setTypes);
   }
 
   return (

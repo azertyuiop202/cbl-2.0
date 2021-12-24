@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'semantic-ui-react';
 import { getCelebNumber } from '../../utils/celebUtils';
 
+import fetch from '../../utils/fetch';
+
 const BonusCelebs = () => {
   const [celebs, setCelebs] = useState([]);
 
@@ -10,7 +12,7 @@ const BonusCelebs = () => {
   }, []);
 
   const fetchCelebs = () => {
-    fetch('/api/celebs/bonus').then((res) => res.json()).then(setCelebs);
+    fetch('/api/celebs/bonus').then(setCelebs);
   }
 
   return !celebs.length ? null : (

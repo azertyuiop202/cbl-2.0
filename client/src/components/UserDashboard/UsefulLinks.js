@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Table } from 'semantic-ui-react';
 
+import fetch from '../../utils/fetch';
+
 const UsefulLinks = () => {
   const [links, setLinks] = useState([]);
 
@@ -9,7 +11,7 @@ const UsefulLinks = () => {
   }, []);
 
   const fetchLinks = () => {
-    fetch('/api/info/usefulLinks').then((res) => res.json()).then(setLinks);
+    fetch('/api/info/usefulLinks').then(setLinks);
   }
 
   return !links.length ? null : (

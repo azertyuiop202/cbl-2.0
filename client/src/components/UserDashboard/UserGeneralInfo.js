@@ -3,30 +3,35 @@ import { Table } from 'semantic-ui-react';
 import { formatDate, formatDateTime } from '../../utils/datetime';
 import ReloadButton from '../UI/Button/ReloadButton';
 
+import fetch from '../../utils/fetch';
+import getUser from '../../utils/getUser';
+
 const UserGeneralInfo = () => {
-  const [user, setUser] = useState({});
-  const [totalCards, setTotalCards] = useState('');
-  const [prizes, setPrizes]= useState([]);
+  const [user, setUser] = useState(null);
+  const [totalCards, setTotalCards] = useState(null);
+  const [prizes, setPrizes]= useState(null);
 
   useEffect(() => {
     fetchUserData();
   }, []);
 
   const fetchUserData = () => {
-    fetch('/api/users/1').then((res) => res.json()).then((user) => {
+    fetch(`/api/users/${getUser().id}`).then((user) => {
       setUser({...user, lastUpdate: new Date()});
     });
 
-    fetch('/api/users/1/totalCards').then((res) => res.json()).then(setTotalCards);
+    fetch(`/api/users/${getUser().id}/totalCards`).then(setTotalCards);
 
-    fetch('/api/users/1/prizes').then((res) => res.json()).then(setPrizes);
+    fetch(`/api/users/${getUser().id}/prizes`).then(setPrizes);
   }
+
+  if (user === null || totalCards === null || prizes === null) return null;
 
   const prizesText = prizes.map((prize) => {
     return prize.prize + (prize.exp_date ? ` (Expires ${formatDate(prize.exp_date)})` : '');
   }).join("\n");
 
-  return !(Object.keys(user) && totalCards && prizes.length) ? null : (
+  return (
     <>
       <Table celled fixed>
         <Table.Header>
