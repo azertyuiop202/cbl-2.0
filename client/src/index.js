@@ -5,14 +5,13 @@ import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
 
 import App from './App';
+import cardsReducer from './store/cards/reducer';
 import usersReducer from './store/users/reducer';
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const rootReducer = combineReducers({
-  users: usersReducer
-});
+const rootReducer = combineReducers({ cards: cardsReducer, users: usersReducer });
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

@@ -12,6 +12,7 @@ const Navbar = () => {
     <Menu style={{ marginTop: '5px', backgroundColor: '#F1F3F4' }}>
       <Menu.Item as={Link} to='/'>Dashboard</Menu.Item>
       <Menu.Item as={Link} to='/myCards'>Sort</Menu.Item>
+      <Menu.Item as={Link} to='/album'>Album</Menu.Item>
 
       <Menu.Menu position='right'>
         { isLoggedIn ? (

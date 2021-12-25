@@ -24,7 +24,9 @@ router.get('/collection/:userId', (req, res, next) => {
     FROM cards
       JOIN celebs ON celebs.id = cards.celeb_id
       JOIN user_cards ON user_cards.card_id = cards.id
+      JOIN card_types ON card_types.id = cards.type
     WHERE user_cards.user_id = ${req.params.userId}
+    ORDER BY celebs.name, card_types.index
   `;
 
   connection.query(query, (err, result) => {

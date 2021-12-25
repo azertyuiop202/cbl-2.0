@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import { Grid } from 'semantic-ui-react';
 
 import MyCardsFilters from './MyCardsFilters';
 import MyCardsList from './MyCardsList';
 
+import { filterAndSortCards } from '../../utils/cardUtils';
 import fetch from '../../utils/fetch';
-import { addOrRemove } from '../../utils/listUtils';
 import getUser from '../../utils/getUser';
+import { addOrRemove } from '../../utils/listUtils';
 
 const MyCards = () => {
+  const sort = useSelector((state) => state.cards.collectionSort);
+  const filter = useSelector((state) => state.cards.collectionFilters);
+  const dispatch = useDispatch();
+
   const [cards, setCards] = useState(null);
-  const [sort, setSort] = useState({ field: 'number', order: 'asc' });
-  const [filter, setFilter] = useState({ show: true, types: [] });
 
   useEffect(() => {
     fetchCards();
@@ -22,23 +26,18 @@ const MyCards = () => {
   }
 
   const toggleFilter = (name) => {
-    if (name === 'show/hide') setFilter({ ...filter, show: !filter.show });
-    else setFilter({ ...filter, types: addOrRemove(filter.types, name) });
+    if (name === 'show/hide') {
+      dispatch(
+        { type: 'UPDATE_FILTER', payload: { ...filter, show: !filter.show } }
+      );
+    } else {
+      dispatch(
+        { type: 'UPDATE_FILTER', payload: { ...filter, types: addOrRemove(filter.types, name) } }
+      );
+    }
   }
 
-  let cardsList = null;
-  if (cards) {
-    cardsList = cards.filter((card) => {
-      if (filter.types.length === 0) return true;
-      return !filter.show ^ filter.types.includes(card.type);
-    }).sort((card1, card2) => {
-      const order = sort.order === 'desc' ? -1 : 1;
-      if (card1[sort.field] < card2[sort.field]) return -1 * order;
-      if (card1[sort.field] > card2[sort.field]) return 1 * order;
-
-      return (card1.celeb > card2.celeb ? 1 : -1) * order;
-    });
-  }
+  let cardsList = filterAndSortCards(cards, filter, sort);
   
   return (
     <>
@@ -48,7 +47,9 @@ const MyCards = () => {
           <MyCardsList cards={cardsList}/>
         </Grid.Column>
         <Grid.Column style={{ width: '20%' }}>
-          <MyCardsFilters sort={sort} updateSort={setSort} filter={filter} toggleFilter={toggleFilter} />
+          <MyCardsFilters
+            sort={sort} updateSort={ (sort) => dispatch({ type: 'UPDATE_SORT', payload: sort }) }
+            filter={filter} toggleFilter={toggleFilter} />
         </Grid.Column>
       </Grid>
     </>
