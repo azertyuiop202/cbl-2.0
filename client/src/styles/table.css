@@ -86,3 +86,11 @@
 #user-lt {
   background-color: #FFD966;
 }
+
+.ui.celled.table tr.row-bonus td {
+  background-color: #A4C2F4;
+}
+
+.ui.celled.table tr.row-exchange td {
+  background-color: #B4A7D6;
+}

@@ -1,10 +1,11 @@
 import express from 'express';
 
 import connection from '../connection.js';
+import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/cardOfTheWeek', (req, res, next) => {
+router.get('/cardOfTheWeek', auth, (req, res, next) => {
   const query = `
     SELECT celebs.name, cards.type, cards.make, cards.link
     FROM cards
@@ -18,7 +19,7 @@ router.get('/cardOfTheWeek', (req, res, next) => {
   });
 });
 
-router.get('/collection/:userId', (req, res, next) => {
+router.get('/collection/:userId', auth, (req, res, next) => {
   const query = `
     SELECT cards.*, celebs.number, celebs.name, user_cards.amount
     FROM cards
@@ -34,7 +35,7 @@ router.get('/collection/:userId', (req, res, next) => {
   });
 });
 
-router.get('/types', (req, res, next) => {
+router.get('/types', auth, (req, res, next) => {
   const query = `SELECT id, \`index\` FROM card_types ORDER BY \`index\``;
 
   connection.query(query, (err, result) => {

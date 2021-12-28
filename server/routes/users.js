@@ -13,15 +13,17 @@ router.get('/:id', auth, (req, res, next) => {
   });
 });
 
-router.get('/:id/totalCards', (req, res, next) => {
+router.get('/:id/totalCards', auth, (req, res, next) => {
   const query = `SELECT SUM(amount) as total FROM user_cards WHERE user_id = ${req.params.id}`;
 
   connection.query(query, (err, result) => {
-    res.json(result[0].total || 0);
+    if (err || !result.length) return res.json(0);
+
+    res.json(result[0].total);
   });
 });
 
-router.get('/:id/prizes', (req, res, next) => {
+router.get('/:id/prizes', auth, (req, res, next) => {
   const query = `SELECT * FROM user_prizes WHERE user_id = ${req.params.id}`;
 
   connection.query(query, (err, result) => {
