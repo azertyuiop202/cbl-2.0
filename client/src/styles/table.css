@@ -33,31 +33,37 @@
   border-bottom: solid black 1px;
 }
 
+.ui.celled.table tr th.border-top,
 .ui.celled.table tr.border-top th,
 .ui.celled.table tr.border-top td {
   border-top: solid black 4px;
 }
 
+.ui.celled.table tr td.border-left,
 .ui.celled.table tr.border-left th,
 .ui.celled.table tr.border-left td {
   border-left: solid black 2px;
 }
 
+.ui.celled.table tr th.border-left,
 .ui.celled.table tr.border-left th:first-child,
 .ui.celled.table tr.border-left td:first-child {
   border-left: solid black 4px;
 }
 
+.ui.celled.table tr td.border-right,
 .ui.celled.table .border-right th,
 .ui.celled.table .border-right td {
   border-right: solid black 2px;
 }
 
+.ui.celled.table tr th.border-right,
 .ui.celled.table .border-right th:last-child,
 .ui.celled.table .border-right td:last-child {
   border-right: solid black 4px;
 }
 
+.ui.celled.table tr th.border-bottom,
 .ui.celled.table .border-bottom th,
 .ui.celled.table .border-bottom td {
   border-bottom: solid black 4px;
@@ -93,4 +99,12 @@
 
 .ui.celled.table tr.row-exchange td {
   background-color: #B4A7D6;
+}
+
+.ui.celled.table tr.trivia-correct td {
+  background-color: #B6D7A8;
+}
+
+.ui.celled.table tr.trivia-incorrect td {
+  background-color: #EA9999;
 }
