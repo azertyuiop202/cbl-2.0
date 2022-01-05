@@ -11,6 +11,7 @@ import slots from './routes/slots.js';
 import tradeslist from './routes/tradeslist.js';
 import triviaAnswers from './routes/triviaAnswers.js';
 import users from './routes/users.js';
+import wishlist from './routes/wishlist.js';
 
 const PORT = process.env.PORT || 3001;
 
@@ -28,6 +29,7 @@ app.use('/api/slots', slots);
 app.use('/api/tradeslist', tradeslist);
 app.use('/api/triviaAnswers', triviaAnswers);
 app.use('/api/users', users);
+app.use('/api/wishlist', wishlist);
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);

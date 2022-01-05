@@ -17,6 +17,7 @@ const Navbar = () => {
       <Menu.Item as={Link} to='/triviaAnswers'>Trivia</Menu.Item>
       <Menu.Item as={Link} to='/slots'>Slots</Menu.Item>
       <Menu.Item as={Link} to='/trades'>Trades</Menu.Item>
+      <Menu.Item as={Link} to='/wishlist'>Wishlist</Menu.Item>
 
       <Menu.Menu position='right'>
         { isLoggedIn ? (

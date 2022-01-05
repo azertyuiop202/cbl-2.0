@@ -11,6 +11,7 @@ import Slots from './Slots/Slots';
 import Trades from './Trades/Trades';
 import TriviaAnswers from './TriviaAnswers/TriviaAnswers';
 import UserDashboard from './UserDashboard/UserDashboard';
+import Wishlist from './Wishlist/Wishlist';
 
 export default () => {
   const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
@@ -31,6 +32,7 @@ export default () => {
       <Route exact path='/slots' element={<Slots />} />
       <Route exact path='/trades' element={<Trades />} />
       <Route exact path='/triviaAnswers' element={<TriviaAnswers />} />
+      <Route exact path='/wishlist' element={<Wishlist />} />
       <Route exact={false} path='*' element={<Navigate to='/' />} />
     </Routes>
   );

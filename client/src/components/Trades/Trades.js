@@ -11,8 +11,6 @@ export default () => {
     fetch(`/api/tradeslist/${getUser().id}`).then(setTradeslist);
   }, []);
 
-  console.log(tradeslist);
-
   return (
     <>
       <h1>Trade</h1>
