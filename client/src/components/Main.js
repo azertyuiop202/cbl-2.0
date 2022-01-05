@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Album from './Album/Album';
+import CardList from './CardList/CardList';
 import Login from './Login/Login';
 import Logout from './Login/Logout';
 import MyCards from './MyCards/MyCards';
@@ -27,6 +28,7 @@ export default () => {
       <Route exact path='/login' element={<Login />} />
       <Route exact path='/logout' element={<Logout />} />
       <Route exact path='/album' element={<Album />} />
+      <Route exact path='/cardList' element={<CardList />} />
       <Route exact path='/myCards' element={<MyCards />} />
       <Route exact path='/orders' element={<Orders />} />
       <Route exact path='/slots' element={<Slots />} />

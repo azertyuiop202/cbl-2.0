@@ -5,6 +5,21 @@ import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
+router.get('/', auth, (req, res, next) => {
+  const query = `
+    SELECT cards.*, celebs.number, celebs.name, user_cards.amount
+    FROM cards
+      JOIN celebs ON celebs.id = cards.celeb_id
+      JOIN card_types ON card_types.id = cards.type
+      LEFT JOIN user_cards ON user_cards.card_id = cards.id
+    ORDER BY celebs.number, card_types.index
+  `;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
 router.get('/cardOfTheWeek', auth, (req, res, next) => {
   const query = `
     SELECT celebs.name, cards.type, cards.make, cards.link
