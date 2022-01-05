@@ -8,6 +8,7 @@ import celebs from './routes/celebs.js';
 import info from './routes/info.js';
 import orders from './routes/orders.js';
 import slots from './routes/slots.js';
+import tradeslist from './routes/tradeslist.js';
 import triviaAnswers from './routes/triviaAnswers.js';
 import users from './routes/users.js';
 
@@ -24,6 +25,7 @@ app.use('/api/celebs', celebs);
 app.use('/api/info', info);
 app.use('/api/orders', orders);
 app.use('/api/slots', slots);
+app.use('/api/tradeslist', tradeslist);
 app.use('/api/triviaAnswers', triviaAnswers);
 app.use('/api/users', users);
 

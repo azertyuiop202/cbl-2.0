@@ -35,9 +35,16 @@ export default () => {
                 <Table.Cell>{slotsRow.timestamp}</Table.Cell>
                 <Table.Cell style={{ backgroundColor: gameColor }}>Slots</Table.Cell>
                 <Table.Cell style={{ backgroundColor: gameColor }}>{slotsRow.prizes.length ? 'won' : 'Lost'}</Table.Cell>
-                { Array.from(Array(5).keys()).map((idx) => (
-                  <Table.Cell key={idx} style={{ width: '15%' }}>{slotsRow.prizes[idx] || ''}</Table.Cell>
-                )) }
+                { Array.from(Array(5).keys()).map((idx) => {
+                  let value = '';
+                  if (slotsRow.prizes[idx]) {
+                    const prize = slotsRow.prizes[idx];
+                    if (prize.link) value = <a href={prize.link} target='_blank'>{prize.prize}</a>;
+                    else value = prize.prize;
+                  }
+
+                  return <Table.Cell key={idx} style={{ width: '15%' }}>{value}</Table.Cell>;
+                }) }
               </Table.Row>
             )
           }) }

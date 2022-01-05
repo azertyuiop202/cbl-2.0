@@ -28,7 +28,9 @@ const createSlotsObject = ([_, slotsRows]) => {
   return {
     id: slotsRows[0].id,
     timestamp: slotsRows[0].timestamp,
-    prizes: slotsRows[0].prize ? slotsRows.map((slotsRow) => slotsRow.prize) : []
+    prizes: slotsRows[0].prize
+      ? slotsRows.map((slotsRow) => { return { prize: slotsRow.prize, link: slotsRow.link } })
+      : []
   };
 }
 
