@@ -7,6 +7,7 @@ import Login from './Login/Login';
 import Logout from './Login/Logout';
 import MyCards from './MyCards/MyCards';
 import Orders from './Orders/Orders';
+import Slots from './Slots/Slots';
 import TriviaAnswers from './TriviaAnswers/TriviaAnswers';
 import UserDashboard from './UserDashboard/UserDashboard';
 
@@ -26,6 +27,7 @@ export default () => {
       <Route exact path='/album' element={<Album />} />
       <Route exact path='/myCards' element={<MyCards />} />
       <Route exact path='/orders' element={<Orders />} />
+      <Route exact path='/slots' element={<Slots />} />
       <Route exact path='/triviaAnswers' element={<TriviaAnswers />} />
       <Route exact={false} path='*' element={<Navigate to='/' />} />
     </Routes>
