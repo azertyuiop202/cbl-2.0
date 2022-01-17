@@ -15,3 +15,11 @@ export const filterAndSortCards = (cards, filter, sort) => {
   
   return cardsList;
 }
+
+export const getHeatmapStyle = (amount) => {
+  if (amount < 1) return { backgroundColor: '#FFF2CC' };
+  if (amount < 2) return { backgroundColor: '#F4CCCC' };
+  if (amount < 3) return { backgroundColor: '#EA9999' };
+  if (amount < 4) return { backgroundColor: '#E06666' };
+  return { color: 'white', backgroundColor: '#CC0000' };
+}

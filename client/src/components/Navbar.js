@@ -20,6 +20,8 @@ const Navbar = () => {
       <Menu.Item as={Link} to='/wishlist'>Wishlist</Menu.Item>
       <Menu.Item as={Link} to='/cardList'>CardList</Menu.Item>
       <Menu.Item as={Link} to='/specialVote'>SpecialVote</Menu.Item>
+      <Menu.Item as={Link} to='/betting'>Betting</Menu.Item>
+      <Menu.Item as={Link} to='/heatmap'>Heatmap</Menu.Item>
 
       <Menu.Menu position='right'>
         { isLoggedIn ? (
