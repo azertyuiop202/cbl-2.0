@@ -21,4 +21,12 @@ router.get('/exchange', auth, (req, res, next) => {
   });
 });
 
+router.get('/list', auth, (req, res, next) => {
+  const query = `SELECT number, name FROM celebs ORDER BY name ASC`;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
 export default router;

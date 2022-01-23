@@ -6,13 +6,20 @@ import { combineReducers, createStore } from 'redux';
 
 import App from './App';
 import cardsReducer from './store/cards/reducer';
+import collectionReducer from './store/collection/reducer';
 import triviaAnswersReducer from './store/triviaAnswers/reducer';
 import usersReducer from './store/users/reducer';
 
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-const rootReducer = combineReducers({ cards: cardsReducer, users: usersReducer, triviaAnswers: triviaAnswersReducer });
+const rootReducer = combineReducers({
+  cards: cardsReducer,
+  collection: collectionReducer,
+  triviaAnswers: triviaAnswersReducer,
+  users: usersReducer
+});
+
 const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
