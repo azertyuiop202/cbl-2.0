@@ -5,13 +5,13 @@ import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', auth, (req, res, next) => {
+router.get('/:userId', auth, (req, res, next) => {
   const query = `
     SELECT cards.*, celebs.number, celebs.name, user_cards.amount
     FROM cards
       JOIN celebs ON celebs.id = cards.celeb_id
       JOIN card_types ON card_types.id = cards.type
-      LEFT JOIN user_cards ON user_cards.card_id = cards.id
+      LEFT JOIN user_cards ON user_cards.card_id = cards.id AND user_cards.user_id = ${req.params.userId}
     ORDER BY celebs.number, card_types.index
   `;
 
@@ -88,6 +88,32 @@ router.get('/types', auth, (req, res, next) => {
   connection.query(query, (err, result) => {
     res.json(result);
   })
+});
+
+router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {
+  const query = `
+    SELECT card_types.id, card_types.\`index\`, cards.make, cards.link, user_cards.amount
+    FROM card_types
+      JOIN cards ON cards.type = card_types.id
+      LEFT JOIN user_cards ON user_cards.card_id = cards.id AND user_cards.user_id = ${req.params.userId}
+    WHERE cards.celeb_id = ${req.params.celebId}
+    ORDER BY \`index\``;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  })
+});
+
+router.get('/collection/:collectionId/:userId', auth, (req, res, next) => {
+  const query = `
+    SELECT cc.card_id
+    FROM collection_cards cc
+      JOIN collections c ON c.id = cc.collection_id
+    WHERE c.user_id = ${req.params.userId} AND c.id = ${req.params.collectionId}`;
+
+  connection.query(query, (err, result) => {
+    res.json(result.map((card) => card.card_id));
+  });
 });
 
 export default router;

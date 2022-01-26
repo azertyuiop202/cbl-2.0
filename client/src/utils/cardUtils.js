@@ -16,6 +16,20 @@ export const filterAndSortCards = (cards, filter, sort) => {
   return cardsList;
 }
 
+export const convertListToMap = (cards) => cards.reduce((cards, card) => {
+  return {
+    ...cards,
+    [card.celeb_id]: !(card.celeb_id in cards) ? { [card.type]: { [card.make]: card } } : {
+      ...cards[card.celeb_id],
+      [card.type]: !(card.type in cards[card.celeb_id]) ? { [card.make]: card } : {
+        ...cards[card.celeb_id][card.type],
+        [card.make]: card
+      }
+    },
+    [card.id]: card
+  };
+}, {})
+
 export const getHeatmapStyle = (amount) => {
   if (amount < 1) return { backgroundColor: '#FFF2CC' };
   if (amount < 2) return { backgroundColor: '#F4CCCC' };

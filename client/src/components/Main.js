@@ -6,6 +6,7 @@ import Album from './Album/Album';
 import Betting from './Betting/Betting';
 import CardList from './CardList/CardList';
 import CelebCollection from './Collection/CelebCollection';
+import CustomCollection from './Collection/CustomCollection';
 import TypeCollection from './Collection/TypeCollection';
 import Heatmap from './Heatmap/Heatmap';
 import Login from './Login/Login';
@@ -32,6 +33,7 @@ export default () => {
       <Route exact path='/' element={<UserDashboard />} />
       <Route exact path='/1celeb' element={<CelebCollection />} />
       <Route exact path='/1type' element={<TypeCollection />} />
+      <Route exact path='/collection' element={<CustomCollection />} />
       <Route exact path='/login' element={<Login />} />
       <Route exact path='/logout' element={<Logout />} />
       <Route exact path='/album' element={<Album />} />
