@@ -104,16 +104,4 @@ router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {
   })
 });
 
-router.get('/collection/:collectionId/:userId', auth, (req, res, next) => {
-  const query = `
-    SELECT cc.card_id
-    FROM collection_cards cc
-      JOIN collections c ON c.id = cc.collection_id
-    WHERE c.user_id = ${req.params.userId} AND c.id = ${req.params.collectionId}`;
-
-  connection.query(query, (err, result) => {
-    res.json(result.map((card) => card.card_id));
-  });
-});
-
 export default router;
