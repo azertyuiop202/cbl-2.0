@@ -33,7 +33,7 @@ export default () => {
             </Table.Header>
             <Table.Body>
               <Table.Row className='border-left border-right border-bottom'>
-                <Table.Cell style={{ height: '50px', backgroundColor: '#B6D7A8' }}>
+                <Table.Cell className='green' style={{ height: '50px' }}>
                   <Dropdown
                     search
                     style={{ position: 'absolute', top: '65px', left: '25px', zIndex: '10' }}

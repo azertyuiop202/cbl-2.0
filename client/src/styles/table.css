@@ -21,8 +21,14 @@
   background-color: #FFF2CC;
 }
 
-.ui.celled.table td.dark {
+.ui.celled.table tr td.dark {
   background-color: #4E4E4E;
+}
+
+.ui.celled.table.green tr td,
+.ui.celled.table tr.green td,
+.ui.celled.table td.green {
+  background-color: #B6D7A8;
 }
 
 .ui.celled.table tr th,

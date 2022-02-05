@@ -97,10 +97,10 @@ export default () => {
             <Table.Body>
               { cards.map((card, idx, cards) => (
                 <Table.Row key={idx} className='border-left border-right border-bottom' style={{ height: '50px' }}>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     <Button negative size='mini' onClick={ () => removeRow(idx) }>X</Button>
                   </Table.Cell>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     <Dropdown
                       search
                       style={{ position: 'absolute', top: `${95 + 50*idx}px`, left: '95px', zIndex: '10' }}
@@ -108,7 +108,7 @@ export default () => {
                       options={ allCelebs.map((celeb, idx, celebs) => { return { key: celeb.number, text: celeb.name, value: celeb.number }; }) }
                       onChange={ (e, { value }) => { updateCollection(idx, value); } } />
                   </Table.Cell>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     { Object.keys(allCards).length === 0 ? null : (
                       <Dropdown
                         style={{ position: 'absolute', top: `${95 + 50*idx}px`, left: '285px', zIndex: '10' }}
@@ -117,7 +117,7 @@ export default () => {
                         onChange={ (e, { value }) => { updateCollection(idx, null, value); } } />
                     ) }
                   </Table.Cell>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     { Object.keys(allCards).length === 0 ? null : (
                       <Dropdown
                         style={{ position: 'absolute', top: `${95 + 50*idx}px`, left: '390px', zIndex: '10' }}
@@ -129,7 +129,7 @@ export default () => {
                 </Table.Row>
               )) }
               <Table.Row className='border-left border-right border-bottom' style={{ height: '50px' }}>
-                <Table.Cell style={{ backgroundColor: '#B6D7A8' }} colSpan='4'>
+                <Table.Cell className='green' colSpan='4'>
                   <Button primary floated='left' onClick={addRow}>Add Row</Button>
                 </Table.Cell>
               </Table.Row>

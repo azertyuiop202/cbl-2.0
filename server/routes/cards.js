@@ -104,4 +104,17 @@ router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {
   })
 });
 
+router.get('/:cardId/owners', auth, (req, res, next) => {
+  const query = `
+    SELECT users.username, user_cards.amount
+    FROM user_cards
+      JOIN users ON users.id = user_cards.user_id
+    WHERE user_cards.card_id = "${req.params.cardId}"
+  `;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
 export default router;

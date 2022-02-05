@@ -126,7 +126,7 @@ export default () => {
                   return (
                     <Table.Row key={idx} className={classes}>
                       <Table.HeaderCell>{value.label}</Table.HeaderCell>
-                      <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                      <Table.Cell className='green'>
                         <Radio name='sort'
                           checked={ value.field === sort.field }
                           onChange={ () => updateSort({ field: value.field, order: value.order }) } />

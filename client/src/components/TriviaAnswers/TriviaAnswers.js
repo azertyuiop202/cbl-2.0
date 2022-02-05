@@ -66,7 +66,7 @@ const TriviaAnswers = () => {
             <Table.Header>
               <Table.Row className='border-top border-left border-right border-bottom'>
                 <Table.HeaderCell style={{ width: '35%', height: '65px' }}>Show Day</Table.HeaderCell>
-                <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                <Table.Cell className='green'>
                   <Dropdown
                     style={{ position: 'absolute', top: '40px', left: '380px', zIndex: '10' }}
                     value={currentDay}

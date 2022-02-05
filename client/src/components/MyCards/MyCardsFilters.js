@@ -20,7 +20,7 @@ const MyCardsFilters = (props) => {
         <Table.Header>
           <Table.Row className='border-top border-left border-right border-bottom'>
             <Table.HeaderCell>Highlight in Trade?</Table.HeaderCell>
-            <Table.Cell style={{ backgroundColor: '#B6D7A8' }}><Checkbox/></Table.Cell>
+            <Table.Cell className='green'><Checkbox/></Table.Cell>
           </Table.Row>
         </Table.Header>
       </Table>
@@ -52,7 +52,7 @@ const MyCardsFilters = (props) => {
               return (
                 <Table.Row key={idx} className={classes}>
                   <Table.HeaderCell>{value.label}</Table.HeaderCell>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     <Radio name='sort'
                       checked={ value.field === props.sort.field }
                       onChange={ () => props.updateSort({ field: value.field, order: value.order }) } />
@@ -82,7 +82,7 @@ const MyCardsFilters = (props) => {
               return (
                 <Table.Row key={idx} className={classes}>
                   <Table.HeaderCell>{value.label}</Table.HeaderCell>
-                  <Table.Cell style={{ backgroundColor: '#B6D7A8' }}>
+                  <Table.Cell className='green'>
                     <Radio name='sort'
                       checked={ value.field === props.sort.field }
                       onChange={ () => props.updateSort({ field: value.field, order: value.order }) } />
@@ -123,7 +123,7 @@ const MyCardsFilters = (props) => {
           <Table.Header>
             <Table.Row className='border-top border-left border-right'>
               <Table.HeaderCell style={{ paddingTop: '0.1em', paddingBottom: '0em' }}>Show / Hide</Table.HeaderCell>
-              <Table.Cell style={{ backgroundColor: '#B6D7A8', paddingTop: '0.4em', paddingBottom: '0em' }}>
+              <Table.Cell className='green' style={{ paddingTop: '0.4em', paddingBottom: '0em' }}>
                 <Radio slider checked={ !props.filter.show } onChange={ () => props.toggleFilter('show/hide') } />
               </Table.Cell>
             </Table.Row>
@@ -136,7 +136,7 @@ const MyCardsFilters = (props) => {
                 return (
                   <Table.Row key={idx} className={classes}>
                     <Table.HeaderCell style={{ paddingTop: '0em', paddingBottom: '0em' }}>{type.id}</Table.HeaderCell>
-                    <Table.Cell style={{ backgroundColor: '#B6D7A8', paddingTop: '0em', paddingBottom: '0em' }}>
+                    <Table.Cell className='green' style={{ paddingTop: '0em', paddingBottom: '0em' }}>
                       <Checkbox checked={ props.filter.types.includes(type.id) } onChange={ () => props.toggleFilter(type.id) }/>
                     </Table.Cell>
                   </Table.Row>

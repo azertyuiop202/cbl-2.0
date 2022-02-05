@@ -13,6 +13,7 @@ import Login from './Login/Login';
 import Logout from './Login/Logout';
 import MyCards from './MyCards/MyCards';
 import Orders from './Orders/Orders';
+import Search from './Search/Search';
 import Slots from './Slots/Slots';
 import SpecialVote from './SpecialVote/SpecialVote';
 import Trades from './Trades/Trades';
@@ -42,6 +43,7 @@ export default () => {
       <Route exact path='/heatmap' element={<Heatmap />} />
       <Route exact path='/myCards' element={<MyCards />} />
       <Route exact path='/orders' element={<Orders />} />
+      <Route exact path='/search' element={<Search />} />
       <Route exact path='/slots' element={<Slots />} />
       <Route exact path='/specialVote' element={<SpecialVote />} />
       <Route exact path='/trades' element={<Trades />} />
