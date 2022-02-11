@@ -13,6 +13,7 @@ import Login from './Login/Login';
 import Logout from './Login/Logout';
 import MyCards from './MyCards/MyCards';
 import Orders from './Orders/Orders';
+import TopXX from './Ranking/TopXX';
 import Search from './Search/Search';
 import Slots from './Slots/Slots';
 import SpecialVote from './SpecialVote/SpecialVote';
@@ -46,6 +47,7 @@ export default () => {
       <Route exact path='/search' element={<Search />} />
       <Route exact path='/slots' element={<Slots />} />
       <Route exact path='/specialVote' element={<SpecialVote />} />
+      <Route exact path='/top25' element={<TopXX />} />
       <Route exact path='/trades' element={<Trades />} />
       <Route exact path='/triviaAnswers' element={<TriviaAnswers />} />
       <Route exact path='/wishlist' element={<Wishlist />} />

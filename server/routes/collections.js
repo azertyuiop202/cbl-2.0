@@ -26,17 +26,13 @@ router.get('/:collectionId', auth, (req, res, next) => {
 });
 
 router.put('/:collectionId/cards', auth, (req, res, next) => {
-  console.log(req.body);
   let query = `DELETE FROM collection_cards WHERE collection_id = ${req.params.collectionId}`;
 
   connection.query(query, (err, result) => {
     const values = req.body.map((card) => `(${req.params.collectionId}, "${card}")`);
     query = `INSERT INTO collection_cards (collection_id, card_id) VALUES ${values.join(', ')}`;
-    console.log(values);
-    console.log(query);
 
     connection.query(query, (err, result) => {
-      console.log(err, result);
       res.json({success: true});
     });
   });

@@ -31,4 +31,28 @@ router.get('/:id/prizes', auth, (req, res, next) => {
   });
 });
 
+router.get('/:id/ranking', auth, (req, res, next) => {
+  const query = `SELECT * FROM rankings WHERE user_id = ${req.params.id}`;
+
+  connection.query(query, (err, result) => {
+    res.json(result.reduce((acc, row) => { return { ...acc, [row.rank]: row.name } }, {}));
+  });
+})
+
+router.post('/:id/ranking/:rank', auth, (req, res, next) => {
+  const query = `INSERT INTO rankings (user_id, \`rank\`, name) VALUES (${req.params.id}, ${req.params.rank}, "${req.body.name}");`;
+
+  connection.query(query, (err, result) => {
+    res.json({success: true});
+  });
+})
+
+router.put('/:id/ranking/:rank', auth, (req, res, next) => {
+  const query = `UPDATE rankings SET name = "${req.body.name}" WHERE user_id = ${req.params.id} AND \`rank\` = ${req.params.rank};`;
+
+  connection.query(query, (err, result) => {
+    res.json({success: true});
+  });
+})
+
 export default router;

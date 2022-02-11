@@ -26,6 +26,7 @@ const Navbar = () => {
       <Menu.Item as={Link} to='/1type'>1Type</Menu.Item>
       <Menu.Item as={Link} to='/collection'>Collection</Menu.Item>
       <Menu.Item as={Link} to='/search'>Search</Menu.Item>
+      <Menu.Item as={Link} to='/top25'>Top25</Menu.Item>
 
       <Menu.Menu position='right'>
         { isLoggedIn ? (
