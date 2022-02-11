@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Dropdown, Grid, Image, Table } from 'semantic-ui-react';
 
 import { convertListToMap } from '../../utils/cardUtils';
@@ -9,9 +10,10 @@ export default () => {
   const [allCelebs, setAllCelebs] = useState([]);
   const [allCards, setAllCards] = useState({});
 
-  const [celeb, setCeleb] = useState(1);
-  const [type, setType] = useState('Base');
-  const [make, setMake] = useState('1');
+  const celeb = useSelector((state) => state.cards.search.celeb);
+  const type = useSelector((state) => state.cards.search.type);
+  const make = useSelector((state) => state.cards.search.make);
+  const dispatch = useDispatch();
   
   const [links, setLinks] = useState([null]);
   const [owners, setOwners] = useState([null]);
@@ -45,6 +47,10 @@ export default () => {
     });
   }, [allCards, celeb, type, make]);
 
+  const updateSearch = (field, value) => {
+    dispatch({ type: 'UPDATE_SEARCH', payload: { [field]: value } });
+  }
+
   return (
     <>
       <h1>Search</h1>
@@ -63,7 +69,7 @@ export default () => {
                     style={{ position: 'absolute', top: `60px`, left: '25px', zIndex: '10' }}
                     value={type}
                     options={ Object.keys(allCards[celeb] || {}).map((type, idx, types) => { return { key: idx, text: type, value: type }; }) }
-                    onChange={ (e, { value }) => { setType(value); } } />
+                    onChange={ (e, { value }) => { updateSearch('type', value); } } />
                 </Table.Cell>
                 <Table.Cell>
                   <Dropdown
@@ -71,7 +77,7 @@ export default () => {
                     style={{ position: 'absolute', top: `60px`, left: '150px', zIndex: '10' }}
                     value={celeb}
                     options={ allCelebs.map((celeb, idx, celebs) => { return { key: celeb.number, text: celeb.name, value: celeb.number }; }) }
-                    onChange={ (e, { value }) => { setCeleb(value); } } />
+                    onChange={ (e, { value }) => { updateSearch('celeb', value); } } />
                 </Table.Cell>
               </Table.Row>
               { links.map((link, idx, links) => {
@@ -109,7 +115,7 @@ export default () => {
                     style={{ position: 'absolute', top: `122px`, left: '140px', zIndex: '10' }}
                     value={make}
                     options={ Object.keys((allCards[celeb] || {})[type] || {}).map((make, idx, makes) => { return { key: idx, text: make, value: make }; }) }
-                    onChange={ (e, { value }) => { setMake(value); } } />
+                    onChange={ (e, { value }) => { updateSearch('make', value); } } />
                 </Table.Cell>
               </Table.Row>
               { owners.map((owner, idx, owners) => {
