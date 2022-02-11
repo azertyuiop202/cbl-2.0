@@ -8,7 +8,7 @@ export default () => {
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
-    fetch(`/api/cards`).then(setCards);
+    fetch(`/api/cards/${getUser().id}`).then(setCards);
   }, []);
 
   return (

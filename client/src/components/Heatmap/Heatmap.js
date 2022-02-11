@@ -5,6 +5,7 @@ import { getHeatmapStyle } from '../../utils/cardUtils';
 import { getCelebNumber } from '../../utils/celebUtils';
 
 import fetch from '../../utils/fetch';
+import getUser from '../../utils/getUser';
 
 export default () => {
   const [cards, setCards] = useState([]);
@@ -13,7 +14,7 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`/api/cards`).then(setCards);
+    fetch(`/api/cards/${getUser().id}`).then(setCards);
     fetch(`/api/cards/types`).then(setTypes);
   }, []);
 
