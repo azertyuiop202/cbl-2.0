@@ -82,12 +82,15 @@ router.get('/type/:typeId/:userId', auth, (req, res, next) => {
   });
 });
 
-router.get('/types', auth, (req, res, next) => {
+router.get('/types/all', auth, (req, res, next) => {
+  console.log('hi');
   const query = `SELECT id, \`index\` FROM card_types ORDER BY \`index\``;
 
   connection.query(query, (err, result) => {
+    console.log(err);
+    console.log(result);
     res.json(result);
-  })
+  });
 });
 
 router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {

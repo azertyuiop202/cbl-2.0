@@ -4,29 +4,14 @@ import { useSelector } from 'react-redux'
 import { Dropdown, Menu } from 'semantic-ui-react';
 
 import getUser from '../utils/getUser';
+import menuItems from './UserHub/menuItems';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
 
   return (
     <Menu style={{ marginTop: '5px', backgroundColor: '#F1F3F4' }}>
-      <Menu.Item as={Link} to='/'>Dashboard</Menu.Item>
-      <Menu.Item as={Link} to='/myCards'>Sort</Menu.Item>
-      <Menu.Item as={Link} to='/album'>Album</Menu.Item>
-      <Menu.Item as={Link} to='/orders'>Orders</Menu.Item>
-      <Menu.Item as={Link} to='/triviaAnswers'>Trivia</Menu.Item>
-      <Menu.Item as={Link} to='/slots'>Slots</Menu.Item>
-      <Menu.Item as={Link} to='/trades'>Trades</Menu.Item>
-      <Menu.Item as={Link} to='/wishlist'>Wishlist</Menu.Item>
-      <Menu.Item as={Link} to='/cardList'>CardList</Menu.Item>
-      <Menu.Item as={Link} to='/specialVote'>SpecialVote</Menu.Item>
-      <Menu.Item as={Link} to='/betting'>Betting</Menu.Item>
-      <Menu.Item as={Link} to='/heatmap'>Heatmap</Menu.Item>
-      <Menu.Item as={Link} to='/1celeb'>1Celeb</Menu.Item>
-      <Menu.Item as={Link} to='/1type'>1Type</Menu.Item>
-      <Menu.Item as={Link} to='/collection'>Collection</Menu.Item>
-      <Menu.Item as={Link} to='/search'>Search</Menu.Item>
-      <Menu.Item as={Link} to='/top25'>Top25</Menu.Item>
+      { menuItems() }
 
       <Menu.Menu position='right'>
         { isLoggedIn ? (
