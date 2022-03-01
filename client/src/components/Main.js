@@ -4,9 +4,8 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Login from './Login/Login';
 import Logout from './Login/Logout';
-import CardList from './UserHub/CardList/CardList';
-import TopXX from './UserHub/Ranking/TopXX';
 import { default as hubRoutes } from './UserHub/routes';
+import { default as portalRoutes } from './Portal/routes';
 
 export default () => {
   const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
@@ -21,6 +20,7 @@ export default () => {
       <Route exact path='login' element={<Login />} />
       <Route exact path='logout' element={<Logout />} />
       { hubRoutes() }
+      { portalRoutes() }
       <Route exact={false} path='*' element={<Navigate to='/hub' />} />
     </Routes>
   );
