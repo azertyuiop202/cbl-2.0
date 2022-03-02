@@ -7,7 +7,7 @@ import Main from './components/Main';
 import Navbar from './components/Navbar';
 
 export default () => (
-  <div style={{ overflow: 'auto', overflowY: 'hidden', paddingBottom: '20px' }}>
+  <div style={{ paddingBottom: '20px' }}>
     <Container style={{ width: '90%', minWidth: '1500px' }}>
       <Navbar />
       <Main />

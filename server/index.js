@@ -9,6 +9,7 @@ import collections from './routes/collections.js';
 import info from './routes/info.js';
 import matches from './routes/matches.js';
 import orders from './routes/orders.js';
+import usePortalRoutes from './routes/portal/usePortalRoutes.js';
 import slots from './routes/slots.js';
 import tradeslist from './routes/tradeslist.js';
 import triviaAnswers from './routes/triviaAnswers.js';
@@ -34,6 +35,8 @@ app.use('/api/tradeslist', tradeslist);
 app.use('/api/triviaAnswers', triviaAnswers);
 app.use('/api/users', users);
 app.use('/api/wishlist', wishlist);
+
+usePortalRoutes(app);
 
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
