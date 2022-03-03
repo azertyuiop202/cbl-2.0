@@ -16,8 +16,6 @@ const StarterPackDetails = () => {
     fetch(`/api/portal/starterPacks/${id}`).then(setPack);
   }, []);
 
-  console.log(pack);
-
   const imagesChunks = _.chunk(pack.links, 3);
 
   return (

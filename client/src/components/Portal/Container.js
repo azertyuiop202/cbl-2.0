@@ -10,6 +10,7 @@ export default () => {
         minHeight: '850px',
         padding: '2em',
         textAlign: 'center',
+        fontSize: '1.2em',
         color: 'white',
         backgroundImage: 'url(https://images.hdqwalls.com/download/abstract-spiral-4k-nz-800x1280.jpg)',
         backgroundPosition: 'top center',

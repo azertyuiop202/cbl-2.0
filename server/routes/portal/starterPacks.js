@@ -33,11 +33,11 @@ router.get('/:id', auth, (req, res, next) => {
 
 router.post('/submitChoice', auth, (req, res, next) => {
   var sendData = JSON.stringify({
-    'Username': 'azertyuiop202',
+    'Username': req.user.username,
+    'PIN': req.user.pin,
     'pack': 'StarterPack', 
+    'D': 'manual',
     'Booster': req.body.name,
-    'PIN': '1234',
-    'D': 'manual'
   });
     
   postRequestToSheets(sendData, () => {
