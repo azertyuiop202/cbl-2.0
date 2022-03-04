@@ -1,6 +1,9 @@
 import React from 'react';
 import { Navigate, Route } from 'react-router-dom';
 
+import Betting from './Betting/Betting';
+import BettingConfirmation from './Betting/BettingConfirmation';
+import BettingFinalization from './Betting/BettingFinalization';
 import Combine from './Combine/Combine';
 import CombineDetails from './Combine/CombineDetails';
 import Container from './Container';
@@ -18,6 +21,9 @@ import StarterPackDetails from './StarterPack/StarterPackDetails';
 export default () => (
   <Route exact path="portal" element={<Container />} >
     <Route exact path="" element={<MainMenu />} />
+    <Route exact path="betting" element={<Betting />} />
+    <Route exact path="betting/confirmation" element={<BettingConfirmation />} />
+    <Route exact path="betting/finalize" element={<BettingFinalization />} />
     <Route exact path="combine" element={<Combine />} />
     <Route exact path="combine/:id" element={<CombineDetails />} />
     <Route exact path="exchange" element={<Exchange />} />

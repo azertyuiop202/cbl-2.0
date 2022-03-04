@@ -7,6 +7,7 @@ import { combineReducers, createStore } from 'redux';
 import App from './App';
 import cardsReducer from './store/cards/reducer';
 import collectionReducer from './store/collection/reducer';
+import portalReducer from './store/portal/reducer';
 import triviaAnswersReducer from './store/triviaAnswers/reducer';
 import usersReducer from './store/users/reducer';
 
@@ -14,6 +15,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 const rootReducer = combineReducers({
+  portal: portalReducer,
   cards: cardsReducer,
   collection: collectionReducer,
   triviaAnswers: triviaAnswersReducer,
