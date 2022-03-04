@@ -37,8 +37,6 @@ router.post('/submit', auth, (req, res, next) => {
     ...req.body
   });
 
-  console.log(sendData);
-
   const query = `SELECT \`value\` FROM settings WHERE \`key\` = 'betting_sheet_url'`;
 
   connection.query(query, (err, url) => {

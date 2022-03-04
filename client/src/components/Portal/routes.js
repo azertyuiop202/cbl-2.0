@@ -17,6 +17,9 @@ import RedeemXP from './Exchange/RedeemXP';
 import MainMenu from './MainMenu/MainMenu';
 import StarterPack from './StarterPack/StarterPack';
 import StarterPackDetails from './StarterPack/StarterPackDetails';
+import Trivia from './Trivia/Trivia';
+import TriviaAnswer from './Trivia/TriviaAnswer';
+import TriviaConfirmation from './Trivia/TriviaConfirmation';
 
 export default () => (
   <Route exact path="portal" element={<Container />} >
@@ -35,6 +38,9 @@ export default () => (
     <Route exact path="exchange/redeemDetails/:id" element={<RedeemDetails />} />
     <Route exact path="starterPack" element={<StarterPack />} />
     <Route exact path="starterPack/:id" element={<StarterPackDetails />} />
+    <Route exact path="trivia" element={<Trivia />} />
+    <Route exact path="trivia/confirmation" element={<TriviaConfirmation />} />
+    <Route exact path="trivia/:day" element={<TriviaAnswer />} />
     <Route exact={false} path='*' element={<Navigate to='/portal' />} />
   </Route>
 );
