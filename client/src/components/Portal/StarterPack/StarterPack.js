@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Dropdown, Image } from 'semantic-ui-react';
-import { useNavigate } from 'react-router-dom';
 
-import Button from '../UI/Button';
 import Center from '../UI/Center';
 import Link from '../UI/Link';
 import Title from '../UI/Title';
@@ -12,7 +10,6 @@ import fetch from '../../../utils/fetch';
 const StarterPack = () => {
   const [selectedPack, setSelectedPack] = useState(0);
   const [packOptions, setPackOptions] = useState({});
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('/api/portal/starterPacks').then((packs) => {
@@ -23,11 +20,6 @@ const StarterPack = () => {
   }, []);
 
   const packDetails = packOptions[selectedPack] || {};
-
-  const submitChoice = () => {
-    fetch(`/api/portal/starterPacks/submitChoice`, 'POST', true, { name: packOptions[selectedPack].name }).then();
-    navigate('/portal');
-  }
 
   return (
     <>
@@ -60,7 +52,7 @@ const StarterPack = () => {
 
       <i>{packDetails['description']}</i>
 
-      <Button text={ `Choose ${packDetails['name']}` } callback={submitChoice} />
+      <Link url={ `/portal/starterPack/${packDetails.id}/confirm` } text={ `Choose ${packDetails.name}` } />
 
       <Link url='/portal' text='Back' />
     </>

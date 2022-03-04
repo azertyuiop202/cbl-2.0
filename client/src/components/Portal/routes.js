@@ -16,6 +16,8 @@ import RedeemDetails from './Exchange/RedeemDetails';
 import RedeemXP from './Exchange/RedeemXP';
 import MainMenu from './MainMenu/MainMenu';
 import StarterPack from './StarterPack/StarterPack';
+import StarterPackChoiceConfirmation from './StarterPack/StarterPackChoiceConfirmation';
+import StarterPackConfirmation from './StarterPack/StarterPackConfirmation';
 import StarterPackDetails from './StarterPack/StarterPackDetails';
 import Trivia from './Trivia/Trivia';
 import TriviaAnswer from './Trivia/TriviaAnswer';
@@ -37,6 +39,8 @@ export default () => (
     <Route exact path="exchange/redeemConfirmation/:id" element={<RedeemConfirmation />} />
     <Route exact path="exchange/redeemDetails/:id" element={<RedeemDetails />} />
     <Route exact path="starterPack" element={<StarterPack />} />
+    <Route exact path="starterPack/:id/confirm" element={<StarterPackChoiceConfirmation />} />
+    <Route exact path="starterPack/:id/confirmation" element={<StarterPackConfirmation />} />
     <Route exact path="starterPack/:id" element={<StarterPackDetails />} />
     <Route exact path="trivia" element={<Trivia />} />
     <Route exact path="trivia/confirmation" element={<TriviaConfirmation />} />
