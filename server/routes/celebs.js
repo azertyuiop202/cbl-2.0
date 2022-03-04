@@ -14,7 +14,15 @@ router.get('/bonus', auth, (req, res, next) => {
 });
 
 router.get('/exchange', auth, (req, res, next) => {
-  const query = `SELECT number, name FROM celebs WHERE is_exchange = 1 ORDER BY number ASC`;
+  const query = `SELECT number, name FROM celebs WHERE is_exchange = 1 AND is_cartoon = 0 ORDER BY number ASC`;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
+router.get('/exchange/all', auth, (req, res, next) => {
+  const query = `SELECT number, name FROM celebs WHERE is_exchange = 1 ORDER BY is_cartoon DESC, number ASC`;
 
   connection.query(query, (err, result) => {
     res.json(result);

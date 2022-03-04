@@ -1,4 +1,3 @@
-import axios from 'axios';
 import express from 'express';
 
 import connection from '../../connection.js';
@@ -36,7 +35,7 @@ router.post('/submit', auth, (req, res, next) => {
   var sendData = JSON.stringify({
     'Username': req.user.username,
     'PIN': req.user.pin,
-    'D': 'manual',
+    'D': 'FALSE',
     ...req.body
   });
 

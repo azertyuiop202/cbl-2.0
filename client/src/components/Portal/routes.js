@@ -4,6 +4,13 @@ import { Navigate, Route } from 'react-router-dom';
 import Combine from './Combine/Combine';
 import CombineDetails from './Combine/CombineDetails';
 import Container from './Container';
+import Exchange from './Exchange/Exchange';
+import ExchangeCards from './Exchange/ExchangeCards';
+import ExchangeConfirmation from './Exchange/ExchangeConfirmation';
+import Instructions from './Exchange/Instructions';
+import RedeemConfirmation from './Exchange/RedeemConfirmation';
+import RedeemDetails from './Exchange/RedeemDetails';
+import RedeemXP from './Exchange/RedeemXP';
 import MainMenu from './MainMenu/MainMenu';
 import StarterPack from './StarterPack/StarterPack';
 import StarterPackDetails from './StarterPack/StarterPackDetails';
@@ -13,6 +20,13 @@ export default () => (
     <Route exact path="" element={<MainMenu />} />
     <Route exact path="combine" element={<Combine />} />
     <Route exact path="combine/:id" element={<CombineDetails />} />
+    <Route exact path="exchange" element={<Exchange />} />
+    <Route exact path="exchange/confirmation/:id" element={<ExchangeConfirmation />} />
+    <Route exact path="exchange/exchangeCards" element={<ExchangeCards />} />
+    <Route exact path="exchange/instructions" element={<Instructions />} />
+    <Route exact path="exchange/redeem" element={<RedeemXP />} />
+    <Route exact path="exchange/redeemConfirmation/:id" element={<RedeemConfirmation />} />
+    <Route exact path="exchange/redeemDetails/:id" element={<RedeemDetails />} />
     <Route exact path="starterPack" element={<StarterPack />} />
     <Route exact path="starterPack/:id" element={<StarterPackDetails />} />
     <Route exact={false} path='*' element={<Navigate to='/portal' />} />
