@@ -15,6 +15,14 @@ router.get('/', auth, (req, res, next) => {
   });
 });
 
+router.get('/:userId/isAvailable', auth, (req, res, next) => {
+  const query = `SELECT has_redeemed_starter_pack FROM users WHERE id = ${req.params.userId}`;
+
+  connection.query(query, (err, result) => {
+    res.json(!result[0].has_redeemed_starter_pack);
+  });
+});
+
 router.get('/:id', auth, (req, res, next) => {
   const query = `SELECT starter_packs.*, cards.link
     FROM starter_packs
