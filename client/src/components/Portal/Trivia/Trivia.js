@@ -10,7 +10,7 @@ const Trivia = () => {
     <>
       <Title>Daily Trivia</Title>
 
-      { days.map((day, idx, days) => <Link url={`/portal/trivia/${day}`} text={day} />) }
+      { days.map((day, idx, days) => <Link key={idx} url={`/portal/trivia/${day}`} text={day} />) }
 
       <br/>
 

@@ -15,6 +15,9 @@ import RedeemConfirmation from './Exchange/RedeemConfirmation';
 import RedeemDetails from './Exchange/RedeemDetails';
 import RedeemXP from './Exchange/RedeemXP';
 import MainMenu from './MainMenu/MainMenu';
+import Slots from './Slots/Slots';
+import SlotsConfirmation from './Slots/SlotsConfirmation';
+import SlotsIntroduction from './Slots/SlotsIntroduction';
 import StarterPack from './StarterPack/StarterPack';
 import StarterPackChoiceConfirmation from './StarterPack/StarterPackChoiceConfirmation';
 import StarterPackConfirmation from './StarterPack/StarterPackConfirmation';
@@ -38,6 +41,9 @@ export default () => (
     <Route exact path="exchange/redeem" element={<RedeemXP />} />
     <Route exact path="exchange/redeemConfirmation/:id" element={<RedeemConfirmation />} />
     <Route exact path="exchange/redeemDetails/:id" element={<RedeemDetails />} />
+    <Route exact path="slots" element={<SlotsIntroduction />} />
+    <Route exact path="slots/confirmation" element={<SlotsConfirmation />} />
+    <Route exact path="slots/spin" element={<Slots />} />
     <Route exact path="starterPack" element={<StarterPack />} />
     <Route exact path="starterPack/:id/confirm" element={<StarterPackChoiceConfirmation />} />
     <Route exact path="starterPack/:id/confirmation" element={<StarterPackConfirmation />} />

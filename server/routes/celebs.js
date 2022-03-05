@@ -37,4 +37,12 @@ router.get('/list', auth, (req, res, next) => {
   });
 });
 
+router.get('/maxNumber', auth, (req, res, next) => {
+  const query = `SELECT \`value\` FROM settings WHERE \`key\` = 'max_celeb_number'`;
+
+  connection.query(query, (err, result) => {
+    res.json(result[0].value);
+  });
+});
+
 export default router;
