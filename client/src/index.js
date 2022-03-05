@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { combineReducers, createStore } from 'redux';
+import { persistStore, persistReducer } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import storage from 'redux-persist/lib/storage';
 
 import App from './App';
 import cardsReducer from './store/cards/reducer';
@@ -22,16 +25,22 @@ const rootReducer = combineReducers({
   users: usersReducer
 });
 
+const persistConfig = { key: 'root', storage };
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 const store = createStore(
-  rootReducer,
+  persistedReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
+const persistor = persistStore(store);
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <PersistGate loading={null} persistor={persistor}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById('root')
 );
