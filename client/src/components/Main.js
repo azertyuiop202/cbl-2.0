@@ -19,9 +19,9 @@ export default () => {
     <Routes>
       <Route exact path='login' element={<Login />} />
       <Route exact path='logout' element={<Logout />} />
-      { hubRoutes() }
+      {/* { hubRoutes() } */}
       { portalRoutes() }
-      <Route exact={false} path='*' element={<Navigate to='/hub' />} />
+      <Route exact={false} path='*' element={<Navigate to='/portal' />} />
     </Routes>
   );
 }

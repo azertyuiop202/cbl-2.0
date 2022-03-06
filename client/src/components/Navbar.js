@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <Menu style={{ marginTop: '5px', backgroundColor: '#F1F3F4' }}>
-      { menuItems() }
+      {/* { menuItems() } */}
       <Menu.Item as={Link} to='/portal'>Portal</Menu.Item>
 
       <Menu.Menu position='right'>
