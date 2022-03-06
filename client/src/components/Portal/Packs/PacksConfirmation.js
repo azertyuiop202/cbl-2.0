@@ -57,9 +57,9 @@ const PacksConfirmation = () => {
       'T': -1 * pack.tokens,
       'GC': -1 * pack.gc,
       'pack': pack.name,
-      'Booster': pack.boosters[0],
-      'Booster2': pack.boosters[1],
-      'Booster3': pack.boosters[2],
+      'Booster': pack.boosters ? pack.boosters[0] : 'No Booster',
+      'Booster2': pack.boosters ? pack.boosters[1] : 'No Booster',
+      'Booster3': pack.boosters ? pack.boosters[2] : 'No Booster',
     };
 
     let boosted = false;
@@ -100,6 +100,7 @@ const PacksConfirmation = () => {
   }
 
   const getBoosterCeleb = () => {
+    if (!pack.boosters) return true;
     const boosters = pack.boosters.filter((booster) => booster != 'No Booster');
     if (boosters.length === 0) return true;
 
