@@ -18,8 +18,6 @@ export default () => {
     fetch(`/api/cards/types/all`).then(setTypes);
   }, []);
 
-  console.log(types);
-
   const updateSort = (sort) => dispatch({ type: 'UPDATE_SORT_HEATMAP', payload: sort })
 
   const celebsCards = cards.sort((card1, card2) => {

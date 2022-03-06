@@ -5,21 +5,6 @@ import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/:userId', auth, (req, res, next) => {
-  const query = `
-    SELECT cards.*, celebs.number, celebs.name, user_cards.amount
-    FROM cards
-      JOIN celebs ON celebs.id = cards.celeb_id
-      JOIN card_types ON card_types.id = cards.type
-      LEFT JOIN user_cards ON user_cards.card_id = cards.id AND user_cards.user_id = ${req.params.userId}
-    ORDER BY celebs.number, card_types.index
-  `;
-
-  connection.query(query, (err, result) => {
-    res.json(result);
-  });
-});
-
 router.get('/cardOfTheWeek', auth, (req, res, next) => {
   const query = `
     SELECT celebs.name, cards.type, cards.make, cards.link
@@ -90,6 +75,14 @@ router.get('/types/all', auth, (req, res, next) => {
   });
 });
 
+router.get('/types/amounts', auth, (req, res, next) => {
+  const query = `SELECT id, amount FROM card_types`;
+
+  connection.query(query, (err, result) => {
+    res.json(result.reduce((acc, row) => { return { ...acc, [row.id]: row.amount } }, {}));
+  });
+});
+
 router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {
   const query = `
     SELECT card_types.id, card_types.\`index\`, cards.make, cards.link, user_cards.amount
@@ -104,12 +97,35 @@ router.get('/types/celeb/:celebId/:userId', auth, (req, res, next) => {
   })
 });
 
+router.get('/boosterOdds', auth, (req, res, next) => {
+  const query = `SELECT name, percentage FROM booster_odds`;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
 router.get('/:cardId/owners', auth, (req, res, next) => {
   const query = `
     SELECT users.username, user_cards.amount
     FROM user_cards
       JOIN users ON users.id = user_cards.user_id
     WHERE user_cards.card_id = "${req.params.cardId}"
+  `;
+
+  connection.query(query, (err, result) => {
+    res.json(result);
+  });
+});
+
+router.get('/:userId', auth, (req, res, next) => {
+  const query = `
+    SELECT cards.*, celebs.number, celebs.name, user_cards.amount
+    FROM cards
+      JOIN celebs ON celebs.id = cards.celeb_id
+      JOIN card_types ON card_types.id = cards.type
+      LEFT JOIN user_cards ON user_cards.card_id = cards.id AND user_cards.user_id = ${req.params.userId}
+    ORDER BY celebs.number, card_types.index
   `;
 
   connection.query(query, (err, result) => {

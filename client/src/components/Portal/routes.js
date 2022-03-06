@@ -15,6 +15,10 @@ import RedeemConfirmation from './Exchange/RedeemConfirmation';
 import RedeemDetails from './Exchange/RedeemDetails';
 import RedeemXP from './Exchange/RedeemXP';
 import MainMenu from './MainMenu/MainMenu';
+import AddGC from './Packs/AddGC';
+import AddBoosters from './Packs/AddBoosters';
+import ChoosePack from './Packs/ChoosePack';
+import PacksInfo from './Packs/PacksInfo';
 import Slots from './Slots/Slots';
 import SlotsConfirmation from './Slots/SlotsConfirmation';
 import SlotsIntroduction from './Slots/SlotsIntroduction';
@@ -25,6 +29,7 @@ import StarterPackDetails from './StarterPack/StarterPackDetails';
 import Trivia from './Trivia/Trivia';
 import TriviaAnswer from './Trivia/TriviaAnswer';
 import TriviaConfirmation from './Trivia/TriviaConfirmation';
+import PacksConfirmation from './Packs/PacksConfirmation';
 
 export default () => (
   <Route exact path="portal" element={<Container />} >
@@ -41,6 +46,11 @@ export default () => (
     <Route exact path="exchange/redeem" element={<RedeemXP />} />
     <Route exact path="exchange/redeemConfirmation/:id" element={<RedeemConfirmation />} />
     <Route exact path="exchange/redeemDetails/:id" element={<RedeemDetails />} />
+    <Route exact path="packs" element={<ChoosePack />} />
+    <Route exact path="packs/addGC" element={<AddGC />} />
+    <Route exact path="packs/addBoosters" element={<AddBoosters />} />
+    <Route exact path="packs/confirmation" element={<PacksConfirmation />} />
+    <Route exact path="packs/info" element={<PacksInfo />} />
     <Route exact path="slots" element={<SlotsIntroduction />} />
     <Route exact path="slots/confirmation" element={<SlotsConfirmation />} />
     <Route exact path="slots/spin" element={<Slots />} />

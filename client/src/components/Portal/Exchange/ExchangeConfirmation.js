@@ -14,8 +14,6 @@ const ExchangeConfirmation = () => {
     fetch(`/api/portal/exchange/rates/${id}`).then(setRate);
   }, []);
 
-  console.log(rate);
-
   return (
     <>
       <p>{ `You have exchanged a ${rate.name} Card and have gained ${rate.xp} Points.` }</p>

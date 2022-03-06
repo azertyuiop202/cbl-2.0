@@ -45,4 +45,23 @@ router.get('/maxNumber', auth, (req, res, next) => {
   });
 });
 
+router.get('/classifications', auth, (req, res, next) => {
+  const query = `SELECT number, nationality, GROUP_CONCAT(celebs_classifications.class) as 'classes'
+    FROM celebs
+      LEFT JOIN celebs_classifications ON celebs_classifications.celeb_id = celebs.id
+    GROUP BY celebs.id`;
+
+  connection.query(query, (err, result) => {
+    res.json(result.reduce((acc, row) => {
+      return {
+        ...acc,
+        [row.number]: [
+          row.nationality,
+          ...(row.classes ? row.classes.split(',') : [])
+        ]
+      };
+    }, {}));
+  });
+});
+
 export default router;

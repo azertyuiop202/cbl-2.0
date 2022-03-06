@@ -14,8 +14,6 @@ const RedeemConfirmation = () => {
     fetch(`/api/portal/exchange/redeemRates/${id}`).then(setRate);
   }, []);
 
-  console.log(rate);
-
   return (
     <>
       <p>{ `You have redeemed (a) ${rate.name} for ${rate.xp} Points.` }</p>

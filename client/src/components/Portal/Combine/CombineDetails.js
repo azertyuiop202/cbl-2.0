@@ -5,6 +5,7 @@ import { Dropdown, Input, Message } from 'semantic-ui-react';
 
 import Button from '../UI/Button';
 import Link from '../UI/Link';
+import Text from '../UI/Text';
 
 import fetch from '../../../utils/fetch';
 
@@ -72,7 +73,7 @@ const CombineDetails = () => {
 
   return !combineDetails ? null : (
     <>
-      <p>{combineDetails.description}</p>
+      <Text>{combineDetails.description}</Text>
       <br/>
 
       { combineDetails.details.map((detail, idx) => {
@@ -102,7 +103,7 @@ const CombineDetails = () => {
 
         return (
           <div key={idx}>
-            <p>{detail.text}</p>
+            <Text>{detail.text}</Text>
             { input }
             <br/>
           </div>
